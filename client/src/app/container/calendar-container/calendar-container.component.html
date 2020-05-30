@@ -1,6 +1,7 @@
 <mwl-calendar-week-view
   [viewDate]="viewDate"
   [events]="events"
+  locale="de-CH"
   (eventClicked)="handleEvent('Clicked', $event.event)"
   (eventTimesChanged)="eventTimesChanged($event)"
   (hourSegmentClicked)="handleHourEvent($event)"
