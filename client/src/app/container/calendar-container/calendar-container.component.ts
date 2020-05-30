@@ -8,7 +8,7 @@ import {CalendarEventTimesChangedEvent} from 'angular-calendar';
   styleUrls: ['./calendar-container.component.scss']
 })
 export class CalendarContainerComponent implements OnInit {
-  viewDate: Date = new Date(Date.now());
+  displayedDate: Date = new Date(Date.now());
   events: CalendarEvent[] = [];
 
 

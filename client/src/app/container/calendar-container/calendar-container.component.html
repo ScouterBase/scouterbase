@@ -1,8 +1,5 @@
-<mwl-calendar-week-view
-  [viewDate]="viewDate"
+<app-calendar
+  [displayedDate]="displayedDate"
   [events]="events"
-  locale="de-CH"
-  (eventClicked)="handleEvent('Clicked', $event.event)"
-  (eventTimesChanged)="eventTimesChanged($event)"
   (hourSegmentClicked)="handleHourEvent($event)"
->
+></app-calendar>
