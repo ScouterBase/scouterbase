@@ -1,0 +1,1 @@
+insert into appointment(id,title,start_date_time, end_date_time,location) values (1,'Test', '2020-05-30 12:00:00','2020-05-30 12:00:05', 'Hier');
