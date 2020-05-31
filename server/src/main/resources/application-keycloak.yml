@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scouterbase
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+keycloak:
+  enabled: true
+  auth-server-url: http://localhost:3002/auth
+  realm: Scouterbase
+  resource: scouterbase
+  public-client: true

@@ -38,11 +38,14 @@ services:
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: password
+      KEYCLOAK_IMPORT: /import/scouterbase-realm.json
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres-keycloak
       DB_DATABASE: keycloak
       DB_USER: postgres
       DB_PASSWORD: password
+    volumes:
+    - ./keycloak:/import
     ports:
       - "3002:8080"
       - "443:8443"

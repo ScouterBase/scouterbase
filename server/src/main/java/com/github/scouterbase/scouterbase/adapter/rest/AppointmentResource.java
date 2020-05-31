@@ -22,6 +22,7 @@ public class AppointmentResource {
   }
 
   @GetMapping
+
   public List<Appointment> getAllAppointments(){
     return appointmentRepository.findAll();
   }
