@@ -14,6 +14,6 @@ import 'zone.js/dist/zone-error'; // Included with Angular CLI.
 
 export const environment: Environment = {
   production: false,
-  restEndpoint: 'http://localhost:8080/api'
+  restEndpoint: '/api'
 };
 
