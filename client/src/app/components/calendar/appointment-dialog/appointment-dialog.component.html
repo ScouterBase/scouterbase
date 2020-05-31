@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Neuen Block erstellen</h1>
+<mat-dialog-content>
+  <div class="line">
+    <mat-form-field>
+      <mat-label>Von</mat-label>
+      <input [value]="data.toISOString()" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Bis</mat-label>
+      <input matInput required>
+    </mat-form-field>
+  </div>
+  <div class="line">
+    <mat-form-field>
+      <mat-label>Titel</mat-label>
+      <input matInput required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ort</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Abbrechen</button>
+  <button [mat-dialog-close]="true" cdkFocusInitial mat-button>Erstellen</button>
+</mat-dialog-actions>

@@ -9,14 +9,19 @@ import {CalendarModule, DateAdapter} from 'angular-calendar';
 import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
-import {CalendarComponent} from './components/calendar/calendar.component';
+import {CalendarComponent} from './components/calendar/calendar/calendar.component';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import {reducers} from "./states/reducers";
-import {effects} from "./states/effects";
-import {HttpClientModule} from "@angular/common/http";
+import {reducers} from './states/reducers';
+import {effects} from './states/effects';
+import {HttpClientModule} from '@angular/common/http';
+import {AppointmentDialogComponent} from './components/calendar/appointment-dialog/appointment-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 registerLocaleData(localeCH);
 
@@ -24,7 +29,8 @@ registerLocaleData(localeCH);
   declarations: [
     AppContainerComponent,
     CalendarContainerComponent,
-    CalendarComponent
+    CalendarComponent,
+    AppointmentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,11 @@ registerLocaleData(localeCH);
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppContainerComponent]

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Appointment} from '../../models/model';
-import {CalendarEvent, EventAction, EventColor} from 'calendar-utils';
+import {Appointment} from '../../../models/model';
+import {CalendarEvent} from 'calendar-utils';
 
 @Component({
   selector: 'app-calendar',
