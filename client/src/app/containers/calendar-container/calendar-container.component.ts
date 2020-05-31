@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CalendarEvent} from 'calendar-utils';
 import {CalendarEventTimesChangedEvent} from 'angular-calendar';
+import {Appointment} from '../../models/model';
 
 @Component({
   selector: 'app-calendar-container',
@@ -9,7 +10,7 @@ import {CalendarEventTimesChangedEvent} from 'angular-calendar';
 })
 export class CalendarContainerComponent implements OnInit {
   displayedDate: Date = new Date(Date.now());
-  events: CalendarEvent[] = [];
+  appointments: Appointment[] = [];
 
 
   constructor() { }

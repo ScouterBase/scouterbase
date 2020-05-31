@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {CalendarEvent} from 'calendar-utils';
+import {Appointment} from '../../models/model';
+import {CalendarEvent, EventAction, EventColor} from 'calendar-utils';
 
 @Component({
   selector: 'app-calendar',
@@ -9,10 +10,19 @@ import {CalendarEvent} from 'calendar-utils';
 export class CalendarComponent {
 
   @Input() displayedDate: Date;
-  @Input() events: CalendarEvent[];
+  @Input() appointments: Appointment[];
   @Output() hourSegmentClicked = new EventEmitter<{ date: Date; sourceEvent: MouseEvent }>();
 
   emitHourSegmentClicked(event: { date: Date; sourceEvent: MouseEvent }) {
     this.hourSegmentClicked.emit(event);
+  }
+
+  mapToEvents(appointments: Appointment[]): CalendarEvent[] { // TODO: Move to helpers and test
+    return appointments.map<CalendarEvent>(app => ({
+      id: app.id,
+      title: app.title,
+      start: app.startDateTime,
+      end: app.endDateTime
+    }));
   }
 }

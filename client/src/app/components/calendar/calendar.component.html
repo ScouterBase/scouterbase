@@ -1,6 +1,6 @@
 <mwl-calendar-week-view
   locale="de-CH"
   [viewDate]="displayedDate"
-  [events]="events"
+  [events]="mapToEvents(appointments)"
   (hourSegmentClicked)="emitHourSegmentClicked($event)"
 >
