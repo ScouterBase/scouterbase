@@ -11,18 +11,21 @@ export class CalendarComponent {
 
   @Input() displayedDate: Date;
   @Input() appointments: Appointment[];
+  @Input() loading: boolean;
+  @Input() initialized: boolean;
+
   @Output() hourSegmentClicked = new EventEmitter<{ date: Date; sourceEvent: MouseEvent }>();
 
   emitHourSegmentClicked(event: { date: Date; sourceEvent: MouseEvent }) {
     this.hourSegmentClicked.emit(event);
   }
 
-  mapToEvents(appointments: Appointment[]): CalendarEvent[] { // TODO: Move to helpers and test
+  mapToEvents(appointments: Appointment[]): CalendarEvent[] { // TODO: Move to helpers and test & this gets called very often?
     return appointments.map<CalendarEvent>(app => ({
       id: app.id,
       title: app.title,
-      start: app.startDateTime,
-      end: app.endDateTime
+      start: new Date(app.startDateTime),
+      end: new Date(app.endDateTime)
     }));
   }
 }

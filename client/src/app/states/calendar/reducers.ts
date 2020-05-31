@@ -9,6 +9,7 @@ const reducer = createReducer(
   on(loadAppointmentsInitialSuccess, (state, {appointments}) => ({
     ...state,
     loading: false,
+    initialized: true,
     appointments: listToMap(appointments)
   }))
 );

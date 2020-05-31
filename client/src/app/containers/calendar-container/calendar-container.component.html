@@ -1,5 +1,7 @@
 <app-calendar
-  [displayedDate]="displayedDate"
-  [appointments]="appointments"
   (hourSegmentClicked)="handleHourEvent($event)"
+  [appointments]="appointments | async"
+  [displayedDate]="displayedDate"
+  [initialized]="initialized | async"
+  [loading]="loading | async"
 ></app-calendar>
