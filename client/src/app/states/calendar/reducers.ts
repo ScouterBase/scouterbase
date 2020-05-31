@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import {CalendarState, initialCalendarState} from './state';
 import {loadAppointmentsInitial, loadAppointmentsInitialSuccess} from './actions';
-import {Appointment} from '../../models/model';
+import {listToMap} from '../../helpers/helpers';
 
 const reducer = createReducer(
   initialCalendarState,
@@ -10,17 +10,10 @@ const reducer = createReducer(
     ...state,
     loading: false,
     initialized: true,
-    appointments: listToMap(appointments)
+    appointments: listToMap(appointments, 'id')
   }))
 );
 
 export function calendarReducer(state: CalendarState | undefined, action: Action) {
   return reducer(state, action);
-}
-
-export function listToMap(list: Appointment[]): Record<string, Appointment> { // TODO: Make generic and move to helpers
-  return list.reduce((o: Record<string, Appointment>, appointment) => {
-    o[appointment.id.toString()] = appointment;
-    return o;
-  }, {});
 }
