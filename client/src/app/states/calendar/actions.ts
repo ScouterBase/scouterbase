@@ -9,3 +9,13 @@ export const loadAppointmentsInitialSuccess = createAction(
   '[Calendar] Successfully initially loaded all appointments from API',
   props<{ appointments: Appointment[] }>()
 );
+
+export const createAppointment = createAction(
+  '[Calendar] Create a new appointment',
+  props<{ appointment: Appointment }>()
+);
+
+export const createAppointmentSuccess = createAction(
+  '[Calendar] Created successfully a new appointment',
+  props<{ appointment: Appointment }>()
+);

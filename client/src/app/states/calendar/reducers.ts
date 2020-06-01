@@ -1,6 +1,11 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import {CalendarState, initialCalendarState} from './state';
-import {loadAppointmentsInitial, loadAppointmentsInitialSuccess} from './actions';
+import {
+  createAppointment,
+  createAppointmentSuccess,
+  loadAppointmentsInitial,
+  loadAppointmentsInitialSuccess
+} from './actions';
 import {listToMap} from '../../helpers/helpers';
 
 const reducer = createReducer(
@@ -11,6 +16,18 @@ const reducer = createReducer(
     loading: false,
     initialized: true,
     appointments: listToMap(appointments, 'id')
+  })),
+  on(createAppointment, (state, {appointment}) => ({
+    ...state,
+    loading: true
+  })),
+  on(createAppointmentSuccess, (state, {appointment}) => ({
+    ...state,
+    loading: false,
+    appointments: {
+      ...state.appointments,
+      [appointment.id.toString()]: appointment
+    }
   }))
 );
 

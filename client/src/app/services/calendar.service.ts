@@ -16,4 +16,8 @@ export class CalendarService {
   getAllAppointments(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(environment.restEndpoint + this.baseUrl);
   }
+
+  createAppointment(appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(environment.restEndpoint + this.baseUrl, appointment);
+  }
 }

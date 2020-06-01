@@ -6,6 +6,7 @@ import {Store} from '@ngrx/store';
 import {GlobalState} from '../../states/state';
 import {Observable} from 'rxjs';
 import {selectAppointments} from '../../states/calendar/selectors';
+import {createAppointment} from "../../states/calendar/actions";
 
 @Component({
   selector: 'app-calendar-container',
@@ -33,5 +34,13 @@ export class CalendarContainerComponent implements OnInit {
       width: '800px',
       data: $event.date
     });
+
+    dialogRef.afterClosed().subscribe((appointment: Appointment | undefined) => {
+        if (appointment) {
+          console.log(appointment);
+          this.store.dispatch(createAppointment({appointment}));
+        }
+      }
+    );
   }
 }

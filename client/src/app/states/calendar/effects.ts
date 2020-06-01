@@ -1,8 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {map, mergeMap} from 'rxjs/operators';
-import {loadAppointmentsInitial, loadAppointmentsInitialSuccess} from './actions';
+import {catchError, map, mergeMap} from 'rxjs/operators';
+import {
+  createAppointment,
+  createAppointmentSuccess,
+  loadAppointmentsInitial,
+  loadAppointmentsInitialSuccess
+} from './actions';
 import {CalendarService} from '../../services/calendar.service';
+import {Appointment} from "../../models/model";
+import {EMPTY} from "rxjs";
 
 @Injectable()
 export class CalendarEffects {
@@ -12,6 +19,16 @@ export class CalendarEffects {
     mergeMap(() => this.calendarService.getAllAppointments()
       .pipe(
         map(appointments => loadAppointmentsInitialSuccess({appointments})),
+      )
+    )
+  ));
+
+  createAppointment$ = createEffect(() => this.actions$.pipe(
+    ofType(createAppointment),
+    mergeMap((action) => this.calendarService.createAppointment(action.appointment)
+      .pipe(
+        map((appointment: Appointment) => createAppointmentSuccess({appointment})),
+        catchError(() => EMPTY)
       )
     )
   ));
