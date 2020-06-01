@@ -27,8 +27,8 @@ public class AppointmentResource {
   }
 
   @PostMapping
-  public Appointment createAppointment(final Appointment appointment) {
-     return this.appointmentRepository.save(appointment);
+  public Appointment createAppointment(@RequestBody final Appointment appointment) {
+    return this.appointmentRepository.save(appointment);
   }
 
   @PutMapping
