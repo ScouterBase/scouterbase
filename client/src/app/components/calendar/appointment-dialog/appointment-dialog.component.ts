@@ -10,7 +10,7 @@ import {Appointment} from '../../../models/model';
 })
 export class AppointmentDialogComponent {
 
-  fromDate: string = this.data.toLocaleString();
+  fromDate: string = this.data.toISOString();
   toDate = '';
   title = '';
   location = '';
