@@ -1,7 +1,7 @@
 export interface Appointment {
   readonly id: number;
   readonly title: string;
-  readonly startDateTime: Date;
-  readonly endDateTime: Date;
+  readonly startDateTime: string;
+  readonly endDateTime: string;
   readonly location: string;
 }

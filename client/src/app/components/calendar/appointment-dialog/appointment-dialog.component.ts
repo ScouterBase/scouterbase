@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Appointment} from '../../../models/model';
+import {dateToStringWithoutTimezone} from "../../../helpers/helpers";
 
 @Component({
   selector: 'app-appointment-dialog',
@@ -23,8 +24,8 @@ export class AppointmentDialogComponent {
   emitCreateAppointment() {
     if (this.fromDate && this.toDate && this.title) {
       const appointment: Appointment = {
-        startDateTime: new Date(this.fromDate),
-        endDateTime: new Date(this.toDate),
+        startDateTime: dateToStringWithoutTimezone(this.fromDate),
+        endDateTime: dateToStringWithoutTimezone(this.toDate),
         title: this.title,
         location: this.location,
         id: undefined
