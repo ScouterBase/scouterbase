@@ -10,8 +10,8 @@ import {Appointment} from '../../../models/model';
 })
 export class AppointmentDialogComponent {
 
-  fromDate: string = this.data.toISOString();
-  toDate = '';
+  fromDate: Date = this.data;
+  toDate: Date = undefined;
   title = '';
   location = '';
 
@@ -35,3 +35,4 @@ export class AppointmentDialogComponent {
     }
   }
 }
+

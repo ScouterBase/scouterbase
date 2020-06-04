@@ -3,11 +3,17 @@
   <div class="line">
     <mat-form-field>
       <mat-label>Von</mat-label>
-      <input [(ngModel)]="fromDate" matInput required>
+      <input [(ngModel)]="fromDate" [ngxMatDatetimePicker]="fromPicker" matInput required>
+      <mat-datepicker-toggle [for]="fromPicker" matSuffix></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #fromPicker color="primary">
+      </ngx-mat-datetime-picker>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Bis</mat-label>
-      <input [(ngModel)]="toDate" matInput required>
+      <input [(ngModel)]="toDate" [ngxMatDatetimePicker]="toPicker" matInput required>
+      <mat-datepicker-toggle [for]="toPicker" matSuffix></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #toPicker color="primary">
+      </ngx-mat-datetime-picker>
     </mat-form-field>
   </div>
   <div class="line">

@@ -22,7 +22,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
+import {NgxMatDatetimePickerModule, NgxMatNativeDateModule} from '@angular-material-components/datetime-picker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 registerLocaleData(localeCH);
 
@@ -46,7 +48,10 @@ registerLocaleData(localeCH);
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    NgxMatDatetimePickerModule,
+    MatDatepickerModule,
+    NgxMatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppContainerComponent]
