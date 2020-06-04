@@ -1,15 +1,16 @@
-import {Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Appointment} from "../../../models/model";
+import {Appointment} from '../../../models/model';
 
 @Component({
   selector: 'app-appointment-dialog',
   templateUrl: './appointment-dialog.component.html',
-  styleUrls: ['./appointment-dialog.component.scss']
+  styleUrls: ['./appointment-dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppointmentDialogComponent {
 
-  fromDate: string = this.data.toISOString();
+  fromDate: string = this.data.toLocaleString();
   toDate = '';
   title = '';
   location = '';
@@ -25,7 +26,8 @@ export class AppointmentDialogComponent {
         startDateTime: new Date(this.fromDate),
         endDateTime: new Date(this.toDate),
         title: this.title,
-        location: this.location
+        location: this.location,
+        id: undefined
       };
       this.dialogRef.close(appointment);
     } else {
