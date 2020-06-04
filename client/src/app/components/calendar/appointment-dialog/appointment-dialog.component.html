@@ -19,7 +19,7 @@
   <div class="line">
     <mat-form-field>
       <mat-label>Titel</mat-label>
-      <input [(ngModel)]="title" matInput required>
+      <input [(ngModel)]="title" cdkFocusInitial matInput required>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Ort</mat-label>
@@ -29,5 +29,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Abbrechen</button>
-  <button (click)="emitCreateAppointment()" cdkFocusInitial mat-button>Erstellen</button>
+  <button (click)="emitCreateAppointment()" color="primary" mat-button>Erstellen</button>
 </mat-dialog-actions>
