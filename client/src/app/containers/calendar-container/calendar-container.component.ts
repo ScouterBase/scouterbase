@@ -29,9 +29,9 @@ export class CalendarContainerComponent implements OnInit {
     this.initialized = this.store.select(state => state.calendar.initialized);
   }
 
-  handleHourEvent(event: { date: Date; sourceEvent: MouseEvent }) {
+  hourSegmentClicked(event: { date: Date; sourceEvent: MouseEvent }) {
     const dialogRef = this.dialog.open(AppointmentDialogComponent, {
-      width: '800px',
+      width: '800px', // TODO: Calc?
       data: new Date(event.date)
     });
 

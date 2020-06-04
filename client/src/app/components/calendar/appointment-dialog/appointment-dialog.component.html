@@ -5,14 +5,14 @@
       <mat-label>Von</mat-label>
       <input [(ngModel)]="fromDate" [ngxMatDatetimePicker]="fromPicker" matInput required>
       <mat-datepicker-toggle [for]="fromPicker" matSuffix></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker #fromPicker color="primary">
+      <ngx-mat-datetime-picker #fromPicker [stepMinute]="10" color="primary">
       </ngx-mat-datetime-picker>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Bis</mat-label>
       <input [(ngModel)]="toDate" [ngxMatDatetimePicker]="toPicker" matInput required>
       <mat-datepicker-toggle [for]="toPicker" matSuffix></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker #toPicker color="primary">
+      <ngx-mat-datetime-picker #toPicker [stepMinute]="10" color="primary">
       </ngx-mat-datetime-picker>
     </mat-form-field>
   </div>

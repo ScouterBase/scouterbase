@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Appointment} from '../../../models/model';
-import {dateToStringWithoutTimezone} from "../../../helpers/helpers";
+import {dateToStringWithoutTimezone} from '../../../helpers/helpers';
 
 @Component({
   selector: 'app-appointment-dialog',
@@ -12,13 +12,19 @@ import {dateToStringWithoutTimezone} from "../../../helpers/helpers";
 export class AppointmentDialogComponent {
 
   fromDate: Date = this.data;
-  toDate: Date = undefined;
+  toDate: Date = this.addHalfHourToDate(this.data);
   title = '';
   location = '';
 
   constructor(
     public dialogRef: MatDialogRef<AppointmentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Date) {
+  }
+
+  addHalfHourToDate(date: Date) { // TODO: Move to helpers or solve in a good way
+    const addedDate = new Date(date);
+    addedDate.setTime(addedDate.getTime() + 30 * 60 * 1000); // min * sec * milisec
+    return addedDate;
   }
 
   emitCreateAppointment() {
