@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Appointment} from '../../../models/model';
 import {CalendarEvent} from 'calendar-utils';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent {
 

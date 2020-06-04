@@ -1,6 +1,6 @@
 <mwl-calendar-week-view
   (hourSegmentClicked)="emitHourSegmentClicked($event)"
-  *ngIf="initialized && !loading"
+  *ngIf="initialized"
   [events]="mapToEvents(appointments)"
   [viewDate]="displayedDate"
   locale="de-CH"
