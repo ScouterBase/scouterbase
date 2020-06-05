@@ -2,6 +2,7 @@ package com.github.scouterbase.scouterbase.adapter.rest;
 
 import com.github.scouterbase.scouterbase.domain.Appointment;
 import com.github.scouterbase.scouterbase.domain.AppointmentRepository;
+import java.security.Principal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

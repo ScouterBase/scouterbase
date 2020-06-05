@@ -15,3 +15,6 @@ keycloak:
   realm: Scouterbase
   resource: scouterbase
   public-client: true
+keycloak-admin:
+    username: ScouterbaseAdmin
+    password: ScouterbaseAdmin

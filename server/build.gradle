@@ -16,9 +16,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.keycloak:keycloak-spring-boot-starter:10.0.1'
+	implementation 'org.keycloak:keycloak-spring-boot-starter:10.0.2'
+	implementation 'org.keycloak:keycloak-admin-client:10.0.2'
+	implementation 'io.vavr:vavr:0.10.3'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.assertj:assertj-core:3.11.1'
+	testImplementation 'org.testcontainers:junit-jupiter:1.14.3'
+	testImplementation 'org.testcontainers:postgresql:1.14.3'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -27,3 +32,23 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+//processResources {
+//	dependsOn 'buildAngular'
+//	from('src/main/resources') {
+//		into 'public'
+//	}
+//	from('../supplierevaluation.client/dist/supplierevaluation') {
+//		into 'public'
+//	}
+//}
+//
+//task buildAngular(type:Exec) {
+//	workingDir '../client'
+//	group = BasePlugin.BUILD_GROUP
+//	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+//		commandLine "npm.cmd", "run", "build", "--prod"
+//	} else {
+//		commandLine "npm", "run", "build", "--prod"
+//	}
+//}
