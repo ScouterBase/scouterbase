@@ -33,22 +33,22 @@ test {
 	useJUnitPlatform()
 }
 
-//processResources {
-//	dependsOn 'buildAngular'
-//	from('src/main/resources') {
-//		into 'public'
-//	}
-//	from('../supplierevaluation.client/dist/supplierevaluation') {
-//		into 'public'
-//	}
-//}
-//
-//task buildAngular(type:Exec) {
-//	workingDir '../client'
-//	group = BasePlugin.BUILD_GROUP
-//	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
-//		commandLine "npm.cmd", "run", "build", "--prod"
-//	} else {
-//		commandLine "npm", "run", "build", "--prod"
-//	}
-//}
+processResources {
+	dependsOn 'buildAngular'
+	from('src/main/resources') {
+		into 'public'
+	}
+	from('../client/dist/scouterbase') {
+		into 'public'
+	}
+}
+
+task buildAngular(type: Exec) {
+	workingDir '../client'
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")) {
+		commandLine "npm.cmd", "run", "build", "--prod"
+	} else {
+		commandLine "npm", "run", "build", "--prod"
+	}
+}

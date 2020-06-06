@@ -58,6 +58,6 @@ public class WebSecurity extends KeycloakWebSecurityConfigurerAdapter {
     super.configure(http);
     http.csrf().disable()
         .authorizeRequests()
-        .antMatchers("/**/*").authenticated();
+        .anyRequest().authenticated();
   }
 }
