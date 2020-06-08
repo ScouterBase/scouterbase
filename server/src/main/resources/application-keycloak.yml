@@ -14,7 +14,8 @@ keycloak:
   auth-server-url: http://localhost:3002/auth
   realm: Scouterbase
   resource: scouterbase
-  public-client: true
+  cors: on
+  bearer-only: true
 keycloak-admin:
     username: ScouterbaseAdmin
     password: ScouterbaseAdmin

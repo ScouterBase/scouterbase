@@ -27,6 +27,8 @@
     "@ngrx/store-devtools": "^9.2.0",
     "angular-calendar": "^0.28.16",
     "date-fns": "^2.14.0",
+    "keycloak-angular": "^7.3.0",
+    "keycloak-js": "^10.0.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
